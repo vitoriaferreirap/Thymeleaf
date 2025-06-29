@@ -3,10 +3,13 @@ package com.vitoriaferreira.thymeleafdemo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -28,6 +31,14 @@ public class StudentController {
     private List<String> sistemas;
 
     /*---------------------------------------------------------------------------- */
+
+    // validação para não aceitar espaços no campo do forms
+    @InitBinder // registra editores personalizados e tira espaços em branco
+    public void initBinder(WebDataBinder dataBinder) {
+        // editor de propriedades que converte strings em branco em null
+        StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+        dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
+    }
 
     // metodos que exibira o formulario
     @GetMapping("/showStudentForm")
@@ -64,4 +75,5 @@ public class StudentController {
         }
 
     }
+
 }
