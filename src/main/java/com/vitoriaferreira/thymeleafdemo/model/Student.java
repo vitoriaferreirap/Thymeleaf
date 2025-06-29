@@ -2,14 +2,31 @@ package com.vitoriaferreira.thymeleafdemo.model;
 
 import java.util.List;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class Student {
+
     private String primeiroNome;
-    private String ultimoNome;
+    // regras validaçao
+    @NotNull(message = "campo obrigatorio") // não pode ser vazio
+    @Size(min = 1, message = "campo obrigatorio") // tamanho mínimo 1
+    private String ultimoNome = "";
+
     private String pais;
     private String linguagemFavorita;
     private List<String> sistemas;
 
     public Student() {
+    }
+
+    public Student(String primeiroNome, String ultimoNome, String pais, String linguagemFavorita,
+            List<String> sistemas) {
+        this.primeiroNome = primeiroNome;
+        this.ultimoNome = ultimoNome;
+        this.pais = pais;
+        this.linguagemFavorita = linguagemFavorita;
+        this.sistemas = sistemas;
     }
 
     public String getPrimeiroNome() {

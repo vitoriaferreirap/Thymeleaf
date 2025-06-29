@@ -4,6 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Student Form</title>
+
+    <style>
+        .errors {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -11,9 +17,14 @@
 
     <form action="#" th:action="@{/processStudentForm}" th:object="${student}" method="POST">
 
+        Os campos marcados com (*) são obrigatórios.
+        <br><br>
         First name: <input type="text" th:field="*{primeiroNome}" />
         <br><br>
-        Last name: <input type="text" th:field="*{ultimoNome}" />
+        Last name (*): <input type="text" th:field="*{ultimoNome}" />
+
+        <span th:if="${#fields.hasErrors('ultimoNome')}" th:errors="*{ultimoNome}" class="errors" />
+
         <br><br>
         Pais:
         <select th:field="*{pais}">
