@@ -2,6 +2,8 @@ package com.vitoriaferreira.thymeleafdemo.model;
 
 import java.util.List;
 
+import com.vitoriaferreira.thymeleafdemo.validation.Code;
+
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -23,6 +25,9 @@ public class Student {
 
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "deve conter 5 digitos") // regex valida o formato
     private String codigoPostal;
+
+    @Code // anotação personalizada para validação
+    private String code;
 
     private String pais;
     private String linguagemFavorita;
@@ -97,4 +102,13 @@ public class Student {
     public void setCodigoPostal(String codigoPostal) {
         this.codigoPostal = codigoPostal;
     }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
 }

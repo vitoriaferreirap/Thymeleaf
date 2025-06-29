@@ -66,6 +66,7 @@ public class StudentController {
     // usa logica de validação aplicada na class student
     public String processForm(@Valid @ModelAttribute("student") Student student, BindingResult bindingResult) {
 
+        System.out.println("Binding Result: " + bindingResult.toString());
         if (bindingResult.hasErrors()) {
             // se houver erros, retornar ao formulario
             return "student-form";
