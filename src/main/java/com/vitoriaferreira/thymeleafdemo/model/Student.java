@@ -16,9 +16,10 @@ public class Student {
     @Size(min = 1, message = "campo obrigatorio") // tamanho mínimo 1
     private String ultimoNome = "";
 
+    @NotNull(message = "campo obrigatorio")
     @Min(value = 0, message = "deve ser maior ou igual a zero") // valor mínimo 0
     @Max(value = 10, message = "deve ser menor ou igual a dez") // valor máximo 10
-    private int passesGratis;
+    private Integer passesGratis;
 
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "deve conter 5 digitos") // regex valida o formato
     private String codigoPostal;
@@ -31,7 +32,7 @@ public class Student {
     }
 
     public Student(String primeiroNome, String ultimoNome, String pais, String linguagemFavorita,
-            List<String> sistemas, int passesGratis, String codigoPostal) {
+            List<String> sistemas, Integer passesGratis, String codigoPostal) {
         this.primeiroNome = primeiroNome;
         this.ultimoNome = ultimoNome;
         this.pais = pais;
@@ -81,11 +82,11 @@ public class Student {
         this.sistemas = sistemas;
     }
 
-    public int getPassesGratis() {
+    public Integer getPassesGratis() {
         return passesGratis;
     }
 
-    public void setPassesGratis(int passesGratis) {
+    public void setPassesGratis(Integer passesGratis) {
         this.passesGratis = passesGratis;
     }
 
