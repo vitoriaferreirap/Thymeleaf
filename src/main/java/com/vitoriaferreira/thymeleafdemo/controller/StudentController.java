@@ -27,6 +27,7 @@ public class StudentController {
     public String processForm(@ModelAttribute("student") Student student) {
         // logica de negocio
         System.out.println("Student: " + student.getPrimeiroNome() + " " + student.getUltimoNome());
+        System.out.println("Pais: " + student.getPais());
 
         return "student-confirmation"; // nome do template Thymeleaf
     }

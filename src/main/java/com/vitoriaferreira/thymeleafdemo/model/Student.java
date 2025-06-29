@@ -3,13 +3,15 @@ package com.vitoriaferreira.thymeleafdemo.model;
 public class Student {
     private String primeiroNome;
     private String ultimoNome;
+    private String pais;
 
     public Student() {
     }
 
-    public Student(String primeiroNome, String ultimoNome) {
+    public Student(String primeiroNome, String ultimoNome, String pais) {
         this.primeiroNome = primeiroNome;
         this.ultimoNome = ultimoNome;
+        this.pais = pais;
     }
 
     public String getPrimeiroNome() {
@@ -26,6 +28,14 @@ public class Student {
 
     public void setUltimoNome(String ultimoNome) {
         this.ultimoNome = ultimoNome;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
     }
 
 }
