@@ -4,14 +4,16 @@ public class Student {
     private String primeiroNome;
     private String ultimoNome;
     private String pais;
+    private String linguagemFavorita;
 
     public Student() {
     }
 
-    public Student(String primeiroNome, String ultimoNome, String pais) {
+    public Student(String primeiroNome, String ultimoNome, String pais, String linguagemFavorita) {
         this.primeiroNome = primeiroNome;
         this.ultimoNome = ultimoNome;
         this.pais = pais;
+        this.linguagemFavorita = linguagemFavorita;
     }
 
     public String getPrimeiroNome() {
@@ -38,4 +40,11 @@ public class Student {
         this.pais = pais;
     }
 
+    public String getLinguagemFavorita() {
+        return linguagemFavorita;
+    }
+
+    public void setLinguagemFavorita(String linguagemFavorita) {
+        this.linguagemFavorita = linguagemFavorita;
+    }
 }

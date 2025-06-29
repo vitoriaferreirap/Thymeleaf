@@ -9,9 +9,11 @@
 <body>
     <h1>Confirmaçao de registro do estudante</h1>
     <!--acessa objeto aluno-->
-    Estudante confirmado: <span th:text="${student.primeiroNome} + ' ' + ${student.ultimoNome}"></span>
-    <br>
-    Pais: <span th:text="${student.pais}"></span>
+    Estudante confirmado:<span th:text="${student.primeiroNome} + ' ' + ${student.ultimoNome}" />
+    <br><br>
+    Pais: <span th:text="${student.pais}" />
+    <br><br>
+    Linguagem Favorita: <span th:text="${student.linguagemFavorita}" />
 </body>
 
 

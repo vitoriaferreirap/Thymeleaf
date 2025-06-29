@@ -14,9 +14,11 @@ import com.vitoriaferreira.thymeleafdemo.model.Student;
 @Controller
 public class StudentController {
 
-    // injecao de dependencias para lista de paises
+    // injecao de dependencias para lista de paises (atributos obj)
     @Value("${paises}")
     private List<String> paises;
+
+    /*---------------------------------------------------------------------------- */
 
     // metodos que exibira o formulario
     @GetMapping("/showStudentForm")
@@ -36,7 +38,7 @@ public class StudentController {
     // metodo que processara o formulario
     @PostMapping("/processStudentForm")
     public String processForm(@ModelAttribute("student") Student student) {
-        // logica de negocio
+        // logica de negocio(log teminal)
         System.out.println("Student: " + student.getPrimeiroNome() + " " + student.getUltimoNome());
         System.out.println("Pais: " + student.getPais());
 

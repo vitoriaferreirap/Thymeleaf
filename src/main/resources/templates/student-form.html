@@ -11,24 +11,21 @@
 
     <form action="#" th:action="@{/processStudentForm}" th:object="${student}" method="POST">
 
-
         First name: <input type="text" th:field="*{primeiroNome}" />
-
-
-
+        <br><br>
         Last name: <input type="text" th:field="*{ultimoNome}" />
-
-
-
+        <br><br>
         Pais:
-
         <select th:field="*{pais}">
             <!--pegando valores agora de forma dinâmica (usando loop for)-->
             <option th:each="tempPais : ${paises}" th:value="${tempPais}" th:text="${tempPais}"> </option>
-
         </select>
-
-
+        <br><br>
+        Linguagem Favorita:
+        <input type="radio" th:field="*{linguagemFavorita}" th:value="Java">Java</input>
+        <input type="radio" th:field="*{linguagemFavorita}" th:value="Python">Python</input>
+        <input type="radio" th:field="*{linguagemFavorita}" th:value="JavaScript">JavaScript</input>
+        <br><br>
         <input type="submit" value="Submit" />
 
 
