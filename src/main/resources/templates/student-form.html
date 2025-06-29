@@ -27,7 +27,10 @@
         Passes Grátis:
         <input type="number" th:field="*{passesGratis}" />
         <span th:if="${#fields.hasErrors('passesGratis')}" th:errors="*{passesGratis}" class="errors" />
-
+        <br><br>
+        Codigo Postal:
+        <input type="text" th:field="*{codigoPostal}" />
+        <span th:if="${#fields.hasErrors('codigoPostal')}" th:errors="*{codigoPostal}" class="errors" />
         <br><br>
         Pais:
         <select th:field="*{pais}">

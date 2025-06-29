@@ -5,6 +5,7 @@ import java.util.List;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public class Student {
@@ -19,6 +20,9 @@ public class Student {
     @Max(value = 10, message = "deve ser menor ou igual a dez") // valor máximo 10
     private int passesGratis;
 
+    @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "deve conter 5 digitos") // regex valida o formato
+    private String codigoPostal;
+
     private String pais;
     private String linguagemFavorita;
     private List<String> sistemas;
@@ -27,12 +31,14 @@ public class Student {
     }
 
     public Student(String primeiroNome, String ultimoNome, String pais, String linguagemFavorita,
-            List<String> sistemas) {
+            List<String> sistemas, int passesGratis, String codigoPostal) {
         this.primeiroNome = primeiroNome;
         this.ultimoNome = ultimoNome;
         this.pais = pais;
         this.linguagemFavorita = linguagemFavorita;
         this.sistemas = sistemas;
+        this.passesGratis = passesGratis;
+        this.codigoPostal = codigoPostal;
     }
 
     public String getPrimeiroNome() {
@@ -81,5 +87,13 @@ public class Student {
 
     public void setPassesGratis(int passesGratis) {
         this.passesGratis = passesGratis;
+    }
+
+    public String getCodigoPostal() {
+        return codigoPostal;
+    }
+
+    public void setCodigoPostal(String codigoPostal) {
+        this.codigoPostal = codigoPostal;
     }
 }
