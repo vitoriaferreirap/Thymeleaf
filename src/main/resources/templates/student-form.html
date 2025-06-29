@@ -23,13 +23,10 @@
         Pais:
 
         <select th:field="*{pais}">
-            <option th:value="Brasil">Brasil</option>
-            <option th:value="EUA">EUA</option>
-            <option th:value="Alemanha">Alemanha</option>
-            <option th:value="India">India</option>
+            <!--pegando valores agora de forma dinâmica (usando loop for)-->
+            <option th:each="tempPais : ${paises}" th:value="${tempPais}" th:text="${tempPais}"> </option>
 
         </select>
-
 
 
         <input type="submit" value="Submit" />

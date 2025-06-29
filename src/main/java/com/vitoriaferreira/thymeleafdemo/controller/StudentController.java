@@ -1,5 +1,8 @@
 package com.vitoriaferreira.thymeleafdemo.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +13,11 @@ import com.vitoriaferreira.thymeleafdemo.model.Student;
 
 @Controller
 public class StudentController {
+
+    // injecao de dependencias para lista de paises
+    @Value("${paises}")
+    private List<String> paises;
+
     // metodos que exibira o formulario
     @GetMapping("/showStudentForm")
     public String showForm(Model model) {
@@ -18,6 +26,9 @@ public class StudentController {
 
         // adicionar o objeto ao modelo
         model.addAttribute("student", student);
+
+        // add a lista de paises
+        model.addAttribute("paises", paises);
 
         return "student-form"; // nome do template Thymeleaf
     }
