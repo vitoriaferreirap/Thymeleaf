@@ -1,19 +1,15 @@
 package com.vitoriaferreira.thymeleafdemo.model;
 
+import java.util.List;
+
 public class Student {
     private String primeiroNome;
     private String ultimoNome;
     private String pais;
     private String linguagemFavorita;
+    private List<String> sistemas;
 
     public Student() {
-    }
-
-    public Student(String primeiroNome, String ultimoNome, String pais, String linguagemFavorita) {
-        this.primeiroNome = primeiroNome;
-        this.ultimoNome = ultimoNome;
-        this.pais = pais;
-        this.linguagemFavorita = linguagemFavorita;
     }
 
     public String getPrimeiroNome() {
@@ -46,5 +42,13 @@ public class Student {
 
     public void setLinguagemFavorita(String linguagemFavorita) {
         this.linguagemFavorita = linguagemFavorita;
+    }
+
+    public List<String> getSistemas() {
+        return sistemas;
+    }
+
+    public void setSistemas(List<String> sistemas) {
+        this.sistemas = sistemas;
     }
 }

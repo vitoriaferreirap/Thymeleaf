@@ -21,6 +21,9 @@ public class StudentController {
     @Value("${linguagens}")
     private List<String> linguagens;
 
+    @Value("${sistemas}")
+    private List<String> sistemas;
+
     /*---------------------------------------------------------------------------- */
 
     // metodos que exibira o formulario
@@ -37,6 +40,9 @@ public class StudentController {
 
         // add a linguagem favorita
         model.addAttribute("linguagens", linguagens);
+
+        // add a lista de sistemas operacionais
+        model.addAttribute("sistemas", sistemas);
 
         return "student-form"; // nome do template Thymeleaf
     }

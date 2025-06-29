@@ -25,6 +25,10 @@
         <input type="radio" th:field="*{linguagemFavorita}" th:each="tempLing : ${linguagens}" th:value="${tempLing}"
             th:text="${tempLing}" />
         <br><br>
+        Sistemas Operacionais:
+        <input type="checkbox" th:field="*{sistemas}" th:each="tempSist : ${sistemas}" th:value="${tempSist}"
+            th:text="${tempSist}" />
+        <br><br>
         <input type="submit" value="Submit" />
     </form>
 
