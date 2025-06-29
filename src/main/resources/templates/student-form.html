@@ -22,8 +22,11 @@
         First name: <input type="text" th:field="*{primeiroNome}" />
         <br><br>
         Last name (*): <input type="text" th:field="*{ultimoNome}" />
-
         <span th:if="${#fields.hasErrors('ultimoNome')}" th:errors="*{ultimoNome}" class="errors" />
+        <br><br>
+        Passes Grátis:
+        <input type="number" th:field="*{passesGratis}" />
+        <span th:if="${#fields.hasErrors('passesGratis')}" th:errors="*{passesGratis}" class="errors" />
 
         <br><br>
         Pais:
