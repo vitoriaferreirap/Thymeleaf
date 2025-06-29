@@ -8,9 +8,16 @@
 </head>
 
 <body>
-    Hello World of Spring Boot and Thymeleaf!
+    <h1>Hello World of Spring Boot and Thymeleaf!</h1>
     <br><br>
-    Studant name : <span th:text="${param.studentName}" Student Name>
+
+    <!-- Mostra o nome do estudante vindo do parâmetro -->
+    <p>Student name: <span th:text="${param.studentName}">Student Name</span></p>
+
+    <br><br>
+
+    <!-- Mostra a mensagem configurada no controller -->
+    <p>The message is: <span th:text="${message}">Default Message</span></p>
 </body>
 
 </html>
