@@ -4,27 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Student Confirmation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 </head>
 
 <body>
-    <h1>Confirmaçao de registro do estudante</h1>
-    <!--acessa objeto aluno-->
-    Estudante confirmado:<span th:text="${student.primeiroNome} + ' ' + ${student.ultimoNome}" />
-    <br><br>
-    Pais: <span th:text="${student.pais}" />
-    <br><br>
-    Linguagem Favorita: <span th:text="${student.linguagemFavorita}" />
-    <br><br>
-    Sistemas Operacionais:
-    <ul>
-        <li th:each="sist : ${student.sistemas}" th:text="${sist}">Sistemas Operacionais</li>
-    </ul>
-    <br><br>
-    Passes Grátis: <span th:text="${student.passesGratis}" />
-    <br><br>
-    Codigo Postal: <span th:text="${student.codigoPostal}" />
-    <br><br>
-    Código: <span th:text="${student.code}" />
+    <div class="container">
+        <div class="row">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr class="table-dark">
+                        <th>Primeiro Nome</th>
+                        <th>Ultimo Nome</th>
+                        <th>Codigo</th>
+                        <th>Codigo Postal</th>
+                        <th>Pais</th>
+                        <th>Linguagem Favorita</th>
+                        <th>Sistemas Operacionais</th>
+                        <th>Passes Grátis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Exibir dados do estudante -->
+                    <tr>
+                        <td th:text="${student.primeiroNome}">Primeiro Nome</td>
+                        <td th:text="${student.ultimoNome}">Ultimo Nome</td>
+                        <td th:text="${student.code}">Codigo</td>
+                        <td th:text="${student.codigoPostal}">Codigo Postal</td>
+                        <td th:text="${student.pais}">Pais</td>
+                        <td th:text="${student.linguagemFavorita}">Linguagem Favorita</td>
+                        <td>
+                            <span th:each="sist, iterStat : ${student.sistemas}">
+                                <span th:text="${sist}"></span>
+                                <span th:if="${!iterStat.last}">, </span>
+                            </span>
+                        </td>
+                        <td th:text="${student.passesGratis}">Passes Grátis</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
 </body>
 
 

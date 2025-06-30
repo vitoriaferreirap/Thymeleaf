@@ -64,13 +64,20 @@ public class StudentController {
     // metodo que processara o formulario
     @PostMapping("/processStudentForm")
     // usa logica de validação aplicada na class student
-    public String processForm(@Valid @ModelAttribute("student") Student student, BindingResult bindingResult) {
+    public String processForm(@Valid @ModelAttribute("student") Student student, BindingResult bindingResult,
+            Model model) {
 
         System.out.println("Binding Result: " + bindingResult.toString());
         if (bindingResult.hasErrors()) {
+            // adicionar novamente as listas ao modelo em caso de erro
+            model.addAttribute("paises", paises);
+            model.addAttribute("linguagens", linguagens);
+            model.addAttribute("sistemas", sistemas);
             // se houver erros, retornar ao formulario
             return "student-form";
         } else {
+            // adicionar o objeto student ao modelo para a página de confirmação
+            model.addAttribute("student", student);
             // logica de negocio(log teminal)
             return "student-confirmation";
         }

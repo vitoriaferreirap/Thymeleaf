@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
+
 <head>
     <meta charset="UTF-8">
     <title>Student Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+
 
     <style>
         .errors {
@@ -14,6 +18,8 @@
 
 <body>
     <h3>Student Registration Form</h3>
+
+
 
     <form action="#" th:action="@{/processStudentForm}" th:object="${student}" method="POST">
 
