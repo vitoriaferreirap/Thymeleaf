@@ -10,6 +10,9 @@
 </head>
 
 <body>
+
+    <a th:href="@{/student/showForm}" class="btn btn-primary btn-sm mb-3">Add Student</a>
+
     <div class="container">
         <div class="row">
             <table class="table table-bordered table-striped">
@@ -23,11 +26,16 @@
                         <th>Linguagem Favorita</th>
                         <th>Sistemas Operacionais</th>
                         <th>Passes Grátis</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Exibir dados do estudante -->
-                    <tr>
+                    <!-- Verificar se há estudantes -->
+                    <tr th:if="${#lists.isEmpty(students)}">
+                        <td colspan="9" class="text-center text-muted">Nenhum estudante cadastrado</td>
+                    </tr>
+                    <!-- Exibir dados dos estudantes -->
+                    <tr th:each="student : ${students}">
                         <td th:text="${student.primeiroNome}">Primeiro Nome</td>
                         <td th:text="${student.ultimoNome}">Ultimo Nome</td>
                         <td th:text="${student.code}">Codigo</td>
@@ -41,6 +49,16 @@
                             </span>
                         </td>
                         <td th:text="${student.passesGratis}">Passes Grátis</td>
+                        <td>
+                            <a class="btn btn-info btn-sm me-2"
+                                th:href="@{/student/showFormUpdate(studentId=${student.id})}">
+                                <i class="fas fa-edit me-1"></i>Atualizar
+                            </a>
+                            <a class="btn btn-danger btn-sm" th:href="@{/student/delete(studentId=${student.id})}"
+                                onclick="if (!(confirm('Tem certeza que deseja deletar este estudante?'))) return false">
+                                <i class="fas fa-trash me-1"></i>Deletar
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
