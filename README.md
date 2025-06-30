@@ -1,7 +1,7 @@
 # Thymeleaf Demo Project
 
 ## Descrição
-Projeto de demonstração usando Spring Boot com Thymeleaf para criar aplicações web com o padrão MVC.
+Projeto de demonstração usando Spring Boot com Thymeleaf para criar aplicações web com o padrão MVC e MySQL para persistência de dados.
 
 ## Tecnologias Utilizadas
 - **Spring Boot** - Framework principal
@@ -9,6 +9,8 @@ Projeto de demonstração usando Spring Boot com Thymeleaf para criar aplicaçõ
 - **Thymeleaf** - Template engine para páginas HTML
 - **Maven** - Gerenciador de dependências
 - **Java 17** - Linguagem de programação
+- **MySQL** - Banco de dados
+- **MySQL Workbench** - Ferramenta de administração do banco
 
 ## Funcionalidades
 - Formulário de cadastro de estudantes
